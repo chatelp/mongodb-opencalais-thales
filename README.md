@@ -40,3 +40,7 @@ Informations diverses:
 - Avant de lancer une analyse, appliquer un filtre sur les données à analyser,
 - Se référer à la documentation mongoDB pour supprimer des donn�es: http://docs.mongodb.org/manual/applications/delete/
 Pour éviter de passer par un shell, il est possible d'utiliser des logiciels permettant la suppression (i.e: MongoExplorer)
+
+## Licence Creative Commons (CC BY-NC-ND 4.0)
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />Ce(tte) œuvre est mise à disposition selon les termes de la <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Licence Creative Commons Attribution - Pas d&#39;Utilisation Commerciale - Pas de Modification 4.0 International</a>.
