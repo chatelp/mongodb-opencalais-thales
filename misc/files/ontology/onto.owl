@@ -1,0 +1,248 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns="http://www.owl-ontologies.com/Onto.owl#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.owl-ontologies.com/Onto.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="TagsKey">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TitleKey"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="IdKey"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="InfoBoxKey"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TextKey"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="isKeyOf"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="WikiDumpDocument"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Key"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="List"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasType"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">tags</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#List">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="KeyType"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#WikiDumpDocument">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Document"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#IdKey"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasKey"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasKey"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#InfoBoxKey"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasKey"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#TagsKey"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#TextKey"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasKey"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#TitleKey"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasKey"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#TitleKey">
+    <rdfs:label xml:lang="en">title</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="String"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasType"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#isKeyOf"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#WikiDumpDocument"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Key"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#IdKey"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#InfoBoxKey"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#TagsKey"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TextKey"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Integer">
+    <rdfs:subClassOf rdf:resource="#KeyType"/>
+  </owl:Class>
+  <owl:Class rdf:about="#TextKey">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#isKeyOf"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#WikiDumpDocument"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Key"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasType"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#String"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">text</rdfs:label>
+    <owl:disjointWith rdf:resource="#TitleKey"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#IdKey"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#InfoBoxKey"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#TagsKey"/>
+  </owl:Class>
+  <owl:Class rdf:about="#String">
+    <rdfs:subClassOf rdf:resource="#KeyType"/>
+  </owl:Class>
+  <owl:Class rdf:about="#InfoBoxKey">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#isKeyOf"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#WikiDumpDocument"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Key"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasType"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#String"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#TitleKey"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#IdKey"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#TagsKey"/>
+    <owl:disjointWith rdf:resource="#TextKey"/>
+    <rdfs:label xml:lang="en">infoBox</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="BasicDBObject">
+    <rdfs:subClassOf rdf:resource="#KeyType"/>
+  </owl:Class>
+  <owl:Class rdf:about="#IdKey">
+    <owl:disjointWith rdf:resource="#TitleKey"/>
+    <owl:disjointWith rdf:resource="#InfoBoxKey"/>
+    <owl:disjointWith rdf:resource="#TagsKey"/>
+    <owl:disjointWith rdf:resource="#TextKey"/>
+    <rdfs:label xml:lang="en">_id</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#isKeyOf"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#WikiDumpDocument"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Key"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#BasicDBObject"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasType"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="#hasType">
+    <rdfs:domain rdf:resource="#KeyType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="#KeyType"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasKey">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Document"/>
+    <rdfs:range rdf:resource="#Document"/>
+  </owl:ObjectProperty>
+  <owl:FunctionalProperty rdf:about="#isKeyOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Key"/>
+    <rdfs:domain rdf:resource="#Key"/>
+  </owl:FunctionalProperty>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4.8, Build 629)  http://protege.stanford.edu -->
